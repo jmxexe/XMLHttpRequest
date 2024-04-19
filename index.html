@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="state">...</h2>
+    <p id="response"></p>
+
+    <button id="btnJs">dati json</button>
+    <br />
+    <br />
+    <h2 id="state2">...</h2>
+    <p id="response2"></p>
+    <button id="btnXml">dati xml</button>
+
+    <br /><br />
+    <button id="reset">reset</button>
+
+    <script>
+      document.getElementById("btnJs").addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          var stateText = "";
+          switch (xhr.readyState) {
+            case 0:
+              stateText = "UNSENT";
+              break;
+            case 1:
+              stateText = "OPENED";
+              break;
+            case 2:
+              stateText = "HEADERS_RECEIVED";
+              break;
+            case 3:
+              stateText = "LOADING";
+              break;
+            case 4:
+              stateText = "DONE";
+              break;
+          }
+          document.getElementById("state").textContent = stateText;
+          console.log(stateText);
+
+        };
+        xhr.open("GET", "users.json");
+        xhr.send();
+
+        xhr.onload = function () {
+          document.getElementById("response").innerHTML = xhr.response;
+        };
+      });
+
+      document.getElementById("btnXml").addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          var stateText = "";
+          switch (xhr.readyState) {
+            case 0:
+              stateText = "UNSENT";
+              break;
+            case 1:
+              stateText = "OPENED";
+              break;
+            case 2:
+              stateText = "HEADERS_RECEIVED";
+              break;
+            case 3:
+              stateText = "LOADING";
+              break;
+            case 4:
+              stateText = "DONE";
+              break;
+          }
+          document.getElementById("state2").innerHTML = stateText;
+          console.log(stateText);
+        };
+        xhr.open("GET", "file.xml");
+        xhr.send();
+
+        xhr.onload = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              // Gestione della risposta XML
+              var xmlDoc = xhr.responseXML;
+              var serializer = new XMLSerializer();
+              var xmlString = serializer.serializeToString(xmlDoc);
+              document.getElementById("response2").innerHTML = xmlString;
+            }
+          }
+        };
+      });
+
+      document.getElementById("reset").addEventListener("click", function () {
+        var headers = document.querySelectorAll("h2");
+        var p = document.querySelectorAll("p");
+
+        for (var i = 0; i < 2; i++) {
+          headers[i].innerHTML = "...";
+          p[i].innerHTML = "";
+        }
+      });
+    </script>
+  </body>
+</html>
