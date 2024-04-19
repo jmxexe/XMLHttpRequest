@@ -8,19 +8,21 @@
     <title>Document</title>
   </head>
   <body>
+   <div class="container d-flex flex-column align-items-center">
     <h2 id="state">...</h2>
     <p id="response"></p>
 
-    <button id="btnJs">dati json</button>
+    <button id="btnJs" class="btn btn-primary">dati json</button>
     <br />
     <br />
     <h2 id="state2">...</h2>
     <p id="response2"></p>
-    <button id="btnXml">dati xml</button>
+    <button id="btnXml" class="btn btn-primary">dati xml</button>
 
     <br /><br />
-    <button id="reset">reset</button>
+    <button id="reset" class="btn btn-secondary">reset</button>
 
+   </div>
     <script>
       document.getElementById("btnJs").addEventListener("click", function () {
         var xhr = new XMLHttpRequest();
