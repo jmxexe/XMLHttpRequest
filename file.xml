@@ -1,14 +1,3 @@
-<persone>
-    <persona>
-        <nome>Andrea</nome>
-        <eta>18</eta>
-    </persona>
-    <persona>
-        <nome>Leo</nome>
-        <eta>19</eta>
-    </persona>
-    <persona>
-        <nome>Gino</nome>
-        <eta>18</eta>
-    </persona>
-</persone>
+<description>
+    XMLHttpRequest è l'oggetto principale utilizzato per effettuare richieste HTTP asincrone AJAX. Questo oggetto consente al client web di inviare richieste HTTP ad un server web senza dover ricaricare l'intera pagina. Una volta che la richiesta viene elaborata dal server, è possibile ottenere e manipolare la risposta ricevuta tramite JavaScript, permettendo così di aggiornare dinamicamente il contenuto della pagina web senza interruzioni per l'utente.
+</description>
